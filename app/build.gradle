@@ -20,10 +20,12 @@ android {
 
 dependencies {
     // Retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     // JSON Parsing
     implementation 'com.google.code.gson:gson:2.8.5'
-    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    // Graph Implementation
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
