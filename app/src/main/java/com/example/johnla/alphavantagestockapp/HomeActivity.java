@@ -8,6 +8,7 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,7 +49,8 @@ public class HomeActivity extends AppCompatActivity implements RetrofitClient.Re
 
                 if(response.isSuccessful()) {
                     StockDailyInfo stockDailyInfo = response.body().getDailyResults();
-                    for(StockData dayData : stockDailyInfo.getDailyInfoList()) {
+                    for(int i = stockDailyInfo.getDailyInfoList().size() - 1; i>=0; i--) {
+                        StockData dayData = stockDailyInfo.getDailyInfoList().get(i);
                         float time = Long.valueOf(dayData.getDate().getTime()).floatValue();
                         Float value = dayData.getStockValue(StockData.StockValue.CLOSE);
                         entries.add(new Entry(time, value));
